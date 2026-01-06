@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  /* Senior-Friendly Color Palette */
+  --color-background: #fdfdfc; /* Very light warm gray/off-white */
+  --color-foreground: #111827; /* Near black for max contrast (gray-900) */
+  
+  --color-primary: #2563eb; /* Strong Blue (blue-600) - Trust */
+  --color-primary-dark: #1e40af; /* blue-800 */
+  
+  --color-action: #ea580c; /* High-vis Orange (orange-600) - Action */
+  --color-action-hover: #c2410c; /* orange-700 */
+  
+  --color-silver-100: #f3f4f6; /* gray-100 */
+  --color-silver-200: #e5e7eb; /* gray-200 */
+  
+  /* Typography Scale - Bumped up for legibility */
+  --text-base: 1.125rem; /* 18px body default */
+  --text-lg: 1.25rem;    /* 20px */
+  --text-xl: 1.5rem;     /* 24px */
+}
+
+/* Base resets and accessibility defaults */
+@layer base {
+  html {
+    font-size: 16px; /* Browser default, but we scale body */
+  }
+  
+  body {
+    @apply bg-background text-foreground text-base leading-relaxed antialiased;
+  }
+
+  /* Accessible Focus States */
+  :focus-visible {
+    @apply outline-4 outline-offset-2 outline-primary;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-foreground;
+  }
+  
+  h1 { @apply text-4xl md:text-5xl mb-6; }
+  h2 { @apply text-3xl md:text-4xl mb-4; }
+  h3 { @apply text-2xl md:text-3xl mb-3; }
+}
+
+/* Custom Utilities for reading layout */
+@utility container-reading {
+  @apply max-w-[720px] mx-auto px-6;
+}
